@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<form action="/Calculate/TinhToan" method="post">
+    <label>nhap a:</label>
+    <input type="text" name="a" /> <br />
+    <label>nhap b:</label>
+    <input type="text" name="b"/>
+
+    <br />
+    <input type="radio" name="operation" value="add" /> <label>Cong</label>
+
+    <input type="radio" name="operation" value="sub" /> <label>Tru</label>
+
+    <input type="radio" name="operation" value="mul" /> <label>Nhan</label>
+
+    <input type="radio" name="operation" value="div" /> <label>Chia</label>
+
+    <br />
+    <input type="submit" value="Calculate"/>
+    <br />
+    <h6>@ViewBag.Total</h6>
+</form>
+
