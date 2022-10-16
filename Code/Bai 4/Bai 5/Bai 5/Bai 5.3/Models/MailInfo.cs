@@ -7,10 +7,10 @@ namespace Bai_5._3.Models
 {
     public class MailInfo
     {
-        public String From { get; set; }
-        public String To { get; set; }
-        public DateTime BirthOfDate { get; set; }
-        public decimal Salary { get; set; }
-        public string StaffImage { get; set; }
+        public string From { get; set; }
+        public string To { get; set; }
+        public string Subject { get; set; }
+        public string Attachment { get; set; }
+        public string Note { get; set; }
     }
 }

@@ -7,6 +7,9 @@ using System.Web;
 using System.Web.Mvc;
 using Bai5._2.Models;
 
+
+// Nguyen Van Viet 2020600886 Bai 5.2
+
 namespace Bai5._2.Controllers
 {
     public class MailController : Controller
@@ -29,8 +32,10 @@ namespace Bai5._2.Controllers
                 mail.IsBodyHtml = true;
 
                 // Can set to false, if you are sending pure text.
-                using (SmtpClient smtp = new SmtpClient("smtp.mail.yahoo.com", 587))
+                using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
                 {
+                    // From: tgtg2808@gmail.com
+                    // Password: amoqkqczfjexcizd
                     smtp.Credentials = new NetworkCredential(model.From, model.Password);
                     System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
                     smtp.EnableSsl = true;
