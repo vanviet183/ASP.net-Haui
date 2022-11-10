@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "Result";
+}
+
+<style>
+    .table-input {
+        padding: 20px;
+        border: 1px solid;
+        width: 400px;
+    }
+
+    .field {
+        padding-right: 20px;
+    }
+
+    input[type="submit"] {
+        border: none;
+        background: green;
+        border-radius: 5px;
+        padding: 5px 10px;
+    }
+</style>
+
+@{
+    string result = "";
+    double a = (Request["sothu1"] == null) ? 0 : Double.Parse(Request["sothu1"]);
+    double b = (Request["sothu2"] == null) ? 0 : Double.Parse(Request["sothu2"]);
+    var operation = Request["otp"];
+
+    switch (operation)
+    {
+        case "+":
+            {
+                result = (a + b).ToString();
+                break;
+
+            }
+        case "-":
+            {
+                result = (a - b).ToString();
+                break;
+            }
+
+        case "*":
+            {
+                result = (a * b).ToString();
+                break;
+            }
+        case "/":
+            {
+                if (b != 0)
+                {
+                    result = (a / b).ToString();
+                    break;
+                }
+                result = "b = 0";
+                break;
+
+            }
+        default:
+            {
+                result = "Phep toan khong hop le";
+                break;
+            }
+    }
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm("Result", "Calculator"))
+{ 
+    <div class="table-input">
+        <table cellpadding="5">
+            <tr>
+                <td class="field">@Html.Label("Nhap so thu 1")</td>
+                <td>@Html.TextBox("sothu1", @a)</td>
+            </tr>
+            <tr>
+                <td class="field">@Html.Label("Nhap so thu 2")</td>
+                <td>@Html.TextBox("sothu2", @b)</td>
+            </tr>
+            <tr>
+                <td class="field">@Html.Label("Ket qua")</td>
+                <td>@Html.TextBox("result", @result)</td>
+            </tr>
+        </table>
+
+        <div style="text-align: center; margin-top: 10px;">
+            <input type="submit" value="+" name="otp" />
+            <input type="submit" value="-" name="otp" />
+            <input type="submit" value="*" name="otp" />
+            <input type="submit" value="/" name="otp" />
+        </div>
+    </div>
+}
+

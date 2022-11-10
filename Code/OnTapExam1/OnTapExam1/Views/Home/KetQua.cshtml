@@ -1,0 +1,34 @@
+﻿
+@model OnTapExam1.Models.Hang
+
+@{
+    ViewBag.Title = "KetQua";
+}
+
+<h2>KetQua</h2>
+
+<style>
+
+    .title {
+        font-weight: 600;
+        text-align: center;
+    }
+</style>
+
+<table width="400px" cellpadding="5" border="1">
+    <tbody>
+        <tr>
+            <td class="title">@Html.DisplayNameFor(model => model.maHang)</td>
+            <td class="title">@Html.DisplayNameFor(model => model.tenHang)</td>
+            <td class="title">@Html.DisplayNameFor(model => model.ThanhTien)</td>
+        </tr>
+
+        <tr>
+            <td>@Html.DisplayFor(model => model.maHang)</td>
+            <td>@Html.DisplayFor(model => model.tenHang)</td>
+            <td>@Html.DisplayFor(model => model.ThanhTien)</td>
+        </tr>
+
+    </tbody>
+
+</table>

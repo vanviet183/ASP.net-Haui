@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    .table-form {
+        margin: 50px auto;
+        width: 300px;
+        background: yellow;
+    }
+
+    td {
+        padding:10px;
+    }
+
+    input[type = "text"] {
+        width: 100%;
+    }
+</style>
+
+@using (Html.BeginForm("Regis", "Registration"))
+{
+<div class="table-form">
+    <table width="300px" border="1"  cellpadding="5">
+        <tr>
+            <td>@Html.Label("First Name")</td>
+            <td>@Html.TextBox("firstName")</td>
+        </tr>
+
+        <tr>
+            <td>@Html.Label("Last Name")</td>
+            <td>@Html.TextBox("lastName")</td>
+        </tr>
+
+        <tr>
+            <td>@Html.Label("Email")</td>
+            <td>@Html.TextBox("email")</td>
+        </tr>
+
+        <tr>
+            <td>@Html.Label("Password")</td>
+            <td>@Html.Password("password")</td>
+        </tr>
+
+        <tr>
+            <td>@Html.Label("City")</td>
+            @{
+                IEnumerable<string> list = new List<string> { "Hanoi", "Hanam", "Danang", "TPHCM" };
+            }
+            <td>@Html.DropDownList("addr", new SelectList(list, list.FirstOrDefault()))</td>
+        </tr>
+
+        <tr>
+            <td>@Html.Label("Gender")</td>
+            <td>
+                @Html.RadioButton("gender", "Male") Male
+                @Html.RadioButton("gender", "Female") Female
+            </td>
+        </tr>
+
+        <tr>
+            <td><input type="submit" value="Save" /></td>
+            <td><input type="reset" value="Cancel" /></td>
+        </tr>
+    </table>
+</div>
+}
+

@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    table {
+        padding: 20px;
+        border: 1px solid;
+    }
+    input[type = "submit"] {
+        background: green;
+        padding: 6px 10px;
+    } 
+    .filed {
+        margin-right: 10px;
+    }
+
+</style>
+
+@using (Html.BeginForm("Result", "Calculator"))
+{
+    <table cellpadding="5">
+        <tr>
+            <td>@Html.Label("Nhap so thu 1", new { @class = "field" })</td>
+            <td>@Html.TextBox("a")</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Nhap so thu 2", new { @class = "field" })</td>
+            <td>@Html.TextBox("b")</td> 
+        </tr>
+        <tr>
+            <td>@Html.Label("Ket qua", new { @class = "field" })</td>
+            <td>@Html.TextBox("ketqua", (string)@ViewBag.Result)</td>
+        </tr>
+
+    </table>
+
+    
+    <input type="submit" value="+" name="opt" />
+    <input type="submit" value="-" name="opt" />
+    <input type="submit" value="*" name="opt" />
+    <input type="submit" value="/" name="opt" />
+}
+
+

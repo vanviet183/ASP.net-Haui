@@ -1,0 +1,46 @@
+﻿@model BTH7._2.Models.Person
+
+@{
+    ViewBag.Title = "Regis";
+}
+
+<style>
+    td {
+        text-align: center;
+    }
+</style>
+
+<h2>Regis</h2>
+<table width="400px" cellpadding="5" border="1">
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.firstName)</td>
+        <td>@Html.DisplayFor(model => model.firstName)</td>
+    </tr>
+
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.lastName)</td>
+        <td>@Html.DisplayFor(model => model.lastName)</td>
+    </tr>
+
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.email)</td>
+        <td>@Html.DisplayFor(model => model.email)</td>
+    </tr>
+
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.password)</td>
+        <td>@Html.DisplayFor(model => model.password)</td>
+    </tr>
+
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.addr)</td>
+        <td>@Html.DisplayFor(model => model.addr)</td>
+    </tr>
+
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.gender)</td>
+        <td>@Html.DisplayFor(model => model.gender)</td>
+    </tr>
+
+</table>
+

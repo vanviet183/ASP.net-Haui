@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "Cau1";
+}
+
+<h2>Cau1</h2>
+
+
+<style>
+    label {
+        font-weight: 600;
+    }
+
+    td {
+        padding: 5px;
+    }
+
+</style>
+
+@{ 
+    var thanhTien = 0.0;
+    var soLuong = Request["soLuong"];
+    var donGia = Request["donGia"];
+    if(soLuong.AsInt() >= 100)
+    {
+        thanhTien = soLuong.AsInt() * donGia.AsFloat() * 0.9;
+    } else
+    {
+        thanhTien = soLuong.AsInt() * donGia.AsFloat();
+    }
+
+}
+
+@using (Html.BeginForm("CalculateHang", "Home"))
+{
+<table  width="400px" cellpadding="5" border="1">
+    <tr>
+        <td>@Html.Label("Ma hang")</td>
+        <td>@Html.TextBox("maHang")</td>
+    </tr>
+
+    <tr>
+        <td>@Html.Label("Ten hang")</td>
+        <td>@Html.TextBox("tenHang")</td>
+    </tr>
+
+    <tr>
+        <td>@Html.Label("Loai hang")</td>
+        @{
+            IEnumerable<String> list = new List<String> { "Quan ao", "Dien tu", "Gia dung" };
+        }
+        <td>@Html.DropDownList("loaiHang", new SelectList(list, list.FirstOrDefault()))</td>
+    </tr>
+
+    <tr>
+        <td>@Html.Label("Don gia")</td>
+        <td>@Html.TextBox("donGia")</td>
+    </tr>
+
+    <tr>
+        <td>@Html.Label("So Luong")</td>
+        <td>@Html.TextBox("soLuong")</td>
+    </tr>
+
+    <tr>
+        <td>@Html.Label("Thanh tien")</td>
+        <td>@Html.TextBox("thanhTien", @thanhTien)</td>
+    </tr>
+    <tr>
+        <td align="center" colspan="2"><input type="submit" value="Tinh"/></td>
+    </tr>
+</table>
+
+}
