@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "Cau1";
+}
+
+<h2>Cau1</h2>
+
+@{
+    var luongThang = 0.0;
+    var soGio = Request["soGio"];
+    var luongGio = Request["luongGio"];
+    var khoa = Request["khoa"];
+
+    if (soGio.AsInt() >= 120)
+    {
+        luongThang = soGio.AsInt() * luongGio.AsFloat() * 1.1;
+    }
+    else
+    {
+        luongThang = soGio.AsInt() * luongGio.AsFloat();
+    }
+
+}
+<form action="/Home/Tinh" method="post">
+
+    <table cellpadding="5" , border="1">
+        <tr>
+            <td><label>Ma giang vien</label></td>
+            <td><input type="text" name="maGV" /></td>
+        </tr>
+
+        <tr>
+            <td><label>Ho ten</label></td>
+            <td><input type="text" name="maGV" /></td>
+        </tr>
+
+        <tr>
+            <td><label>Khoa</label></td>
+
+            <td>
+                <select name="khoa">
+                    <option hidden>@khoa</option>
+                    <option value="coKhi">Co khi</option>
+                    <option value="kinhTe">Kinh te</option>
+                    <option value="cntt">Cong nghe thong tin</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td><label>Luong Gio</label></td>
+            <td><input type="text" name="luongGio" value=@luongGio /></td>
+        </tr>
+
+        <tr>
+            <td><label>So Gio</label></td>
+            <td><input type="text" name="soGio" value=@soGio /></td>
+        </tr>
+
+        <tr>
+            <td><label>Luong Thang</label></td>
+            <td><input type="text" name="luongThang" value=@luongThang /></td>
+        </tr>
+
+        <tr>
+            <td align="center" colspan="2">
+                <input type="submit" , value="Tinh" />
+            </td>
+        </tr>
+    </table>
+</form>

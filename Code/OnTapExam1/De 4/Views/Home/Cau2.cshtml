@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "Cau2";
+}
+
+<h2>Cau2</h2>
+
+@{
+    var luongThang = 0.0;
+    var soGio = Request["soGio"];
+    var luongGio = Request["luongGio"];
+    var khoa = Request["khoa"];
+
+    if (soGio.AsInt() >= 120)
+    {
+        luongThang = soGio.AsInt() * luongGio.AsFloat() * 1.1;
+    }
+    else
+    {
+        luongThang = soGio.AsInt() * luongGio.AsFloat();
+    }
+
+}
+
+<style>
+    td {
+        padding: 5px;
+    }
+</style>
+
+
+@using (@Html.BeginForm("KetQua", "Home"))
+{
+    <table width="400px" cellpadding="5" , border="1">
+        <tr>
+            <td>@Html.Label("Ma giang vien")</td>
+            <td>@Html.TextBox("maGV")</td>
+        </tr>
+
+        <tr>
+            <td>@Html.Label("Ho ten")</td>
+            <td>@Html.TextBox("hoTen")</td>
+        </tr>
+
+        <tr>
+            <td>@Html.Label("Khoa")</td>
+            @{ 
+                IEnumerable<String> list = new List<String> { "Co khi", "Kinh te", "Cong nghe thong tin" };
+            }
+            <td>@Html.DropDownList("khoa", new SelectList(list, list.FirstOrDefault()))</td>
+        </tr>
+
+        <tr>
+            <td>@Html.Label("Luong gio")</td>
+            <td>@Html.TextBox("luongGio")</td>
+        </tr>
+
+        <tr>
+            <td>@Html.Label("So gio")</td>
+            <td>@Html.TextBox("soGio")</td>
+        </tr>
+
+        <tr>
+            <td>@Html.Label("Luong thang")</td>
+            <td>@Html.TextBox("luongThang")</td>
+        </tr>
+
+        <tr>
+            <td align="center" colspan="2">
+                <input type="submit" value="Tinh" />
+            </td>
+        </tr>
+    </table>
+}
+

@@ -1,0 +1,35 @@
+﻿@model De_4.Models.GiangVien
+@{
+    ViewBag.Title = "KetQua";
+}
+
+<h2>KetQua</h2>
+
+<style>
+    td {
+        padding: 5px;
+    }
+
+    .title {
+        font-weight: 600;
+        text-align: center;
+    }
+</style>
+
+<table width="400px" cellpadding="5" border="1">
+    <tr>
+        <td class="title">@Html.DisplayNameFor(model => model.maGV)</td>
+        <td class="title">@Html.DisplayNameFor(model => model.hoTen)</td>
+        <td class="title">@Html.DisplayNameFor(model => model.luongThang)</td>
+    </tr>
+
+    <tr>
+        <td>@Html.DisplayFor(model => model.maGV)</td>
+        <td>@Html.DisplayFor(model => model.hoTen)</td>
+        <td>@Html.DisplayFor(model => model.luongThang)</td>
+    </tr>
+
+</table>
+
+
+
